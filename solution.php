@@ -10,14 +10,15 @@ function result($a, $b, $c, $d)
     $dif1 = $a - $b;
     $dif2 = $c - $d;
 
-    if (!($dif1 - $dif2)) {
-        return 2;
-    }
+    if (($dif1 >=0 && $dif2 >=0) || ($dif1 < 0 && $dif2 <0)) {
 
-    if (($dif1 >0 && $dif2 >0) || ($dif1 < 0 && $dif2 <0)) {
-        if ($dif1 == $dif2 && ($a == $c)) {
-            // угадан результат
-            return 2;
+        if ($dif1 == $dif2) {
+            if ($a == $c) {
+                // угадан результат
+                return 2;
+            } else {
+                return 1;
+            }
         }
         // угадан исход
         return 1;
